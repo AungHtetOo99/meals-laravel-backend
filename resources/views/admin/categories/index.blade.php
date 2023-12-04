@@ -54,9 +54,10 @@
                                                   <a href="{{ url('category/'.$value->id.'/show')}}" ><button class="btn btn-info ms-1">show</button></a>
 
                                                   <div>
-                                                    <form action="{{url('category/'.$value->id.'/delete')}}"method="POST">
+                                                    <form action="{{url('category/'.$value->id)}}"method="POST">
                                                     @csrf
-                                                    <button class="btn btn-danger ms-1">Delete</button>
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger ms-1">Delete</button>
                                                     </form>
                                                 </div>
 

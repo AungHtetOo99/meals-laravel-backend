@@ -16,5 +16,24 @@ class CategoryRepository implements CategoryInterface{
         $category->save();
     }
 
+    public function findById($id){
+        return Category::findOrFail($id);
+
+    }
+
+    public function update($id){
+        $category = $this->findById($id);
+        $category->name = request()->name;
+        $category->update();
+
+    }
+
+    public function destroy($id){
+        $category = $this->findById($id);
+        $category->delete();
+
+    }
+
+
 
 }

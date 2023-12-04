@@ -53,7 +53,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = $this->CategoryInterface->findById($id);
+        return view ('admin.categories.edit' , compact('category'));
     }
 
     /**
@@ -61,7 +62,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->CategoryInterface->update($id);
+        return redirect ('category');
     }
 
     /**
@@ -69,6 +71,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->CategoryInterface->destroy($id);
+        return redirect ('category');
     }
 }
