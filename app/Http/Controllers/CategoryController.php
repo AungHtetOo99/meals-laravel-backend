@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Interfaces\CategoryInterface;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    private $CategoryInterface;
+    public function __construct(CategoryInterface $CategoryInterface){
+        $this->CategoryInterface = $CategoryInterface;
+    }
+
     public function index()
     {
-        return view ('admin.categories.index');
+        $category = Category::all();
+        return view ('admin.categories.index' , compact('category'));
     }
 
     /**
@@ -19,7 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        return view ('admin.categories.create' , compact('category'));
     }
 
     /**
@@ -27,7 +36,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->CategoryInterface->store();
+        return redirect ('category');
     }
 
     /**
