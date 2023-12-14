@@ -1,7 +1,7 @@
 <?php
 namespace App\Interfaces;
 
-interface CategoryInterface {
+interface ProductInterface {
     public function all();
     public function store();
     public function findById($id);
