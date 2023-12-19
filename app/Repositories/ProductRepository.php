@@ -3,6 +3,9 @@
 namespace App\Repositories;
 use App\Interfaces\ProductInterface;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use File;
 
 class ProductRepository implements ProductInterface{
 
@@ -14,6 +17,11 @@ class ProductRepository implements ProductInterface{
         $product = new Product;
         $product->name = request()->name;
         $product->category_id = request()->category_id;
+
+       $imageName = time().'.'.request()->image->extension();
+       request()->image->move(public_path('images'), $imageName);
+       $product->image = $imageName;
+
         $product->price = request()->price;
         $product->description = request()->description;
 

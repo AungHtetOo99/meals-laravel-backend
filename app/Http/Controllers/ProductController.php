@@ -41,7 +41,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->ProductInterface->store();
+        
+        $this->ProductInterface->store($request);
         return redirect ('products');
     }
 
@@ -58,8 +59,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::all();
         $product = $this->ProductInterface->findById($id);
-        return view ('admin.products.edit' , compact('product'));
+        return view ('admin.products.edit' , compact('product' , 'categories'));
     }
 
     /**

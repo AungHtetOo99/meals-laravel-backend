@@ -3,6 +3,7 @@
 namespace App\Repositories;
 use App\Interfaces\CategoryInterface;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryRepository implements CategoryInterface{
 

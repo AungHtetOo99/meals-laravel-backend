@@ -19,7 +19,7 @@
                     <div class="mb-3 row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" name='name' class="form-control-plaintext" id="staticEmail">
+                            <input type="text" name='name' class="form-control" id="staticEmail">
                         </div>
 
                     </div>

@@ -1,5 +1,6 @@
 <?php
 namespace App\Interfaces;
+use Illuminate\Http\Request;
 
 interface CategoryInterface {
     public function all();

@@ -42,16 +42,11 @@
                                                         <th scope="col">id</th>
                                                         <th scope="col">name</th>
                                                         <th scope="col">Category_id</th>
-
                                                         <th scope="col">Image</th>
                                                         <th scope="col">Description</th>
                                                         <th scope="col">Price</th>
-
-
-
-
-
                                                     </tr>
+
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($product as $value)
@@ -60,11 +55,17 @@
                                                             <td>{{ $value->name }}</td>
 
 
-                                                            <td>{{ $value->category?
-                                                            $value->category->name: "NULL" }}</td>
+                                                            <td>{{ $value->category ? $value->category->name : 'NULL' }}
+                                                            </td>
 
 
-                                                            <td>image</td>
+                                                            <td>
+                                                                @if(isset($value->image))
+                                                                <img src="{{ asset ('images/'.$value->image) }}" alt="{{ $value->name }}" width="50px">
+                                                                @else
+                                                                No Image
+                                                                @endif
+                                                            </td>
 
 
                                                             <td>{{ $value->description }}</td>
