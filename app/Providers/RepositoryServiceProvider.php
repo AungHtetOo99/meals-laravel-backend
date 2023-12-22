@@ -3,7 +3,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\CategoryInterface;
+use App\Interfaces\api\CategoryInterface as apiCategoryInterface;
+
 use App\Repositories\CategoryRepository;
+use App\Repositories\api\CategoryRepository as apiCategoryRepository;
+
 use App\Interfaces\ProductInterface;
 use App\Repositories\ProductRepository;
 
@@ -18,6 +22,8 @@ class RepositoryServiceProvider extends ServiceProvider {
     public function boot(): void
     {
         $this->app->bind(CategoryInterface::class , CategoryRepository::class);
+        $this->app->bind(apiCategoryInterface::class , apiCategoryRepository::class);
+
         $this->app->bind(ProductInterface::class , ProductRepository::class);
 
     }
