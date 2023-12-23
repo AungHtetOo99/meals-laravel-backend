@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('category/', [CategoryController::class,'all']);
 Route::get('category/{id}', [CategoryController::class,'getcategorybyid']);
+Route::get('product/{id}', [ProductController::class,'getproductbyid']);
+
 
